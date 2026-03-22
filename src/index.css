@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer base {
+  @media print {
+    @page {
+      margin: 1cm;
+      size: auto;
+    }
+    
+    body {
+      background-color: white !important;
+      -webkit-print-color-adjust: exact;
+    }
+
+    /* Hide elements not needed in PDF */
+    .no-print, 
+    header.sticky,
+    footer {
+      display: none !important;
+    }
+
+    /* Ensure content fits and looks good */
+    main {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
+
+    .grid {
+      display: block !important;
+    }
+
+    section {
+      break-inside: avoid;
+      margin-bottom: 2rem !important;
+    }
+
+    h1, h2, h3 {
+      color: black !important;
+    }
+
+    .bg-white {
+      background-color: white !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .shadow-sm, .shadow-md {
+      box-shadow: none !important;
+    }
+
+    .border {
+      border-color: #e5e7eb !important;
+    }
+
+    /* Force colors for print */
+    .text-emerald-600 { color: #059669 !important; }
+    .bg-emerald-50 { background-color: #ecfdf5 !important; }
+    .bg-emerald-600 { background-color: #059669 !important; }
+  }
+}
