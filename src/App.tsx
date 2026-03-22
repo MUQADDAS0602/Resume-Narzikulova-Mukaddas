@@ -65,7 +65,8 @@ export default function App() {
             <div className="h-4 w-px bg-gray-200 mx-2 hidden md:block no-print"></div>
             <a href="mailto:narziqulovamuqaddas@gmail.com" className="flex items-center gap-1.5 hover:text-emerald-600 transition-colors">
               <Mail size={16} />
-              <span>Email</span>
+              <span className="print-only hidden">narziqulovamuqaddas@gmail.com</span>
+              <span className="no-print">Email</span>
             </a>
             <a href="tel:01072936602" className="flex items-center gap-1.5 hover:text-emerald-600 transition-colors">
               <Phone size={16} />
@@ -73,7 +74,8 @@ export default function App() {
             </a>
             <a href="https://www.linkedin.com/in/mukaddas-narzikulova-b1799a340/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-emerald-600 transition-colors">
               <Linkedin size={16} />
-              <span>LinkedIn</span>
+              <span className="print-only hidden">Narzikulova Mukaddas</span>
+              <span className="no-print">LinkedIn</span>
             </a>
             <div className="flex items-center gap-1.5">
               <MapPin size={16} />

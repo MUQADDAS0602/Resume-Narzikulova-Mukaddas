@@ -3,38 +3,251 @@
 @layer base {
   @media print {
     @page {
-      margin: 1cm;
-      size: auto;
+      margin: 0.5in;
+      size: A4;
     }
-    
+
+    * {
+      box-sizing: border-box !important;
+    }
+
     body {
       background-color: white !important;
       -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-size: 8px !important;
+      line-height: 1.15 !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     /* Hide elements not needed in PDF */
-    .no-print, 
-    header.sticky,
+    .no-print,
     footer {
       display: none !important;
     }
 
-    /* Ensure content fits and looks good */
+    /* Show elements only in PDF */
+    .print-only {
+      display: inline !important;
+    }
+
+    /* Style header for PDF - compact */
+    header.sticky {
+      position: static !important;
+      border-bottom: 2px solid #059669 !important;
+      padding: 0 0 3px 0 !important;
+      margin-bottom: 4px !important;
+    }
+
+    header h1 {
+      font-size: 14px !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+
+    header p {
+      font-size: 9px !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+
+    header .flex-wrap {
+      gap: 5px !important;
+      font-size: 7.5px !important;
+    }
+
+    header .py-4 {
+      padding-top: 2px !important;
+      padding-bottom: 2px !important;
+    }
+
+    header .gap-4 {
+      gap: 3px !important;
+    }
+
+    /* Ensure content fits on one page */
     main {
       padding: 0 !important;
       margin: 0 !important;
       max-width: 100% !important;
     }
 
-    .grid {
-      display: block !important;
+    main > .space-y-16 > * + * {
+      margin-top: 0.2rem !important;
     }
 
+    /* Professional summary - compact */
+    #summary p {
+      font-size: 8px !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    #summary .space-y-6 > * + * {
+      margin-top: 0.1rem !important;
+    }
+
+    /* Use two-column grid layout in print */
+    .grid {
+      display: grid !important;
+      grid-template-columns: 1.8fr 1fr !important;
+      gap: 0.3rem !important;
+    }
+
+    .lg\:col-span-2 {
+      grid-column: span 1 !important;
+    }
+
+    /* Sections - very compact */
     section {
       break-inside: avoid;
-      margin-bottom: 2rem !important;
+      margin-bottom: 0.15rem !important;
     }
 
+    section .space-y-8 > * + * {
+      margin-top: 0.15rem !important;
+    }
+
+    section .space-y-6 > * + * {
+      margin-top: 0.1rem !important;
+    }
+
+    section .space-y-10 > * + * {
+      margin-top: 0.15rem !important;
+    }
+
+    section .space-y-16 > * + * {
+      margin-top: 0.15rem !important;
+    }
+
+    /* Section headers */
+    section .mb-6 {
+      margin-bottom: 0.1rem !important;
+    }
+
+    section h2 {
+      font-size: 10px !important;
+    }
+
+    section h3 {
+      font-size: 9px !important;
+      margin-bottom: 0 !important;
+    }
+
+    section h4 {
+      font-size: 7.5px !important;
+      margin-bottom: 0 !important;
+    }
+
+    section p, section span, section li {
+      font-size: 7.5px !important;
+      line-height: 1.2 !important;
+    }
+
+    /* Timeline dots and borders */
+    .pl-8 {
+      padding-left: 10px !important;
+    }
+
+    /* Timeline dot size */
+    .absolute.-left-\\[9px\\] {
+      width: 8px !important;
+      height: 8px !important;
+    }
+
+    /* Border left for timeline */
+    .border-l-2 {
+      border-left-width: 1px !important;
+    }
+
+    /* Education items spacing */
+    section .space-y-2 > * + * {
+      margin-top: 0 !important;
+    }
+
+    section .space-y-3 > * + * {
+      margin-top: 1px !important;
+    }
+
+    section .space-y-4 > * + * {
+      margin-top: 1px !important;
+    }
+
+    /* Cards in experience grid */
+    .grid.grid-cols-1.md\:grid-cols-2 {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 2px !important;
+    }
+
+    .grid.grid-cols-1.md\:grid-cols-2 > div {
+      padding: 3px !important;
+    }
+
+    /* Date badges */
+    .rounded-full {
+      padding: 0 5px !important;
+      font-size: 6.5px !important;
+    }
+
+    /* Right column - compact */
+    .space-y-12 > * + * {
+      margin-top: 0.2rem !important;
+    }
+
+    /* Honors section */
+    #honors {
+      padding: 4px !important;
+    }
+
+    #honors .space-y-6 > * + * {
+      margin-top: 2px !important;
+    }
+
+    #honors .gap-4 {
+      gap: 3px !important;
+    }
+
+    #honors .w-10 {
+      width: 16px !important;
+      height: 16px !important;
+    }
+
+    /* Skills/Competencies */
+    #skills .space-y-6 > * + * {
+      margin-top: 1px !important;
+    }
+
+    #skills .space-y-4 > * + * {
+      margin-top: 2px !important;
+    }
+
+    #skills .p-4 {
+      padding: 3px !important;
+    }
+
+    #skills .mb-3 {
+      margin-bottom: 1px !important;
+    }
+
+    #skills .gap-2 {
+      gap: 1px !important;
+    }
+
+    /* Skill tags */
+    #skills .text-xs {
+      font-size: 6.5px !important;
+      padding: 0 3px !important;
+    }
+
+    /* Language list */
+    #skills .space-y-2 > * + * {
+      margin-top: 0 !important;
+    }
+
+    /* General heading styles */
     h1, h2, h3 {
       color: black !important;
     }
@@ -51,6 +264,49 @@
 
     .border {
       border-color: #e5e7eb !important;
+    }
+
+    /* Divider lines in section headers */
+    .h-px {
+      display: none !important;
+    }
+
+    /* Remove all excess padding */
+    .p-8 {
+      padding: 4px !important;
+    }
+
+    .px-6 {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .py-12 {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .mb-2 {
+      margin-bottom: 0 !important;
+    }
+
+    .mb-4 {
+      margin-bottom: 1px !important;
+    }
+
+    .gap-12 {
+      gap: 0.2rem !important;
+    }
+
+    /* Section icon sizes */
+    section .flex.items-center.gap-3 svg {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    /* Rounded corners - flatten for print */
+    .rounded-2xl, .rounded-xl {
+      border-radius: 4px !important;
     }
 
     /* Force colors for print */
